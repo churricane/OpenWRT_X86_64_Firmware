@@ -30,6 +30,7 @@ sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefil
 #netdata chienese 
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
 git clone https://github.com/sirpdboy/luci-app-netdata ./feeds/luci/applications/luci-app-netdata
-#update go-lang
+
+#update go-lang 1.22
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
