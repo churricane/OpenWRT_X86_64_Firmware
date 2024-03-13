@@ -27,10 +27,10 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 #kernel 5.15
 sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
 #cgo enable
-sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' ./feeds/packages/utils/v2dat/Makefile
+sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 #netdata chienese 
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
-git clone https://github.com/sirpdboy/luci-app-netdata ./feeds/luci/applications/luci-app-netdata
+git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #update go-lang 1.22
 rm -rf feeds/packages/lang/golang
