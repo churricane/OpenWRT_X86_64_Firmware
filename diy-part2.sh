@@ -26,7 +26,8 @@ sed -i 's/\/bin\/ash/\/bin\/bash/' package/base-files/files/etc/passwd
 sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 #kernel 5.15
 sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
-
+#cgo enable
+sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' ./feeds/packages/utils/v2dat/Makefile
 #netdata chienese 
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
 git clone https://github.com/sirpdboy/luci-app-netdata ./feeds/luci/applications/luci-app-netdata
@@ -35,5 +36,3 @@ git clone https://github.com/sirpdboy/luci-app-netdata ./feeds/luci/applications
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
-rm -rf ./feeds/packages/utils/v2dat
-cp -r ./feeds/smpackage/v2dat ./feeds/packages/utils/v2dat
