@@ -34,3 +34,6 @@ git clone https://github.com/sirpdboy/luci-app-netdata ./feeds/luci/applications
 #update go-lang 1.22
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+
+rm -rf ./feeds/packages/utils/v2dat
+cp -r ./feeds/smpackage/v2dat ./feeds/packages/utils/v2dat
