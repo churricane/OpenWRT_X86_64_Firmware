@@ -22,7 +22,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86_64-5.15.config
   DIY_P1_SH: x86_64-5.15-part1.sh
-  DIY_P2_SH: x86_64-5.15-part25.sh
+  DIY_P2_SH: x86_64-5.15-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
