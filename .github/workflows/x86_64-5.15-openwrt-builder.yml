@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: x86_64-5.15-openwrt
+name: x86_64-5.15-OpenWrt Builder
 
 on:
   repository_dispatch:
