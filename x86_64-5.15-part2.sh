@@ -32,10 +32,10 @@ sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefil
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 
 #remove defaut package
-sed -i '/luci-app-accesscontrol/d' include/target.mk
-sed -i '/luci-app-filetransfer/d' include/target.mk
-sed -i '/luci-app-vlmcsd/d' include/target.mk
-sed -i '/luci-app-wol/d' include/target.mk
+sed -i 's/luci-app-accesscontrol//g' include/target.mk
+sed -i 's/luci-app-filetransfer//g' include/target.mk
+sed -i 's/luci-app-vlmcsd//g' include/target.mk
+sed -i 's/luci-app-wol//g' include/target.mk
 
 #netdata chienese 
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
