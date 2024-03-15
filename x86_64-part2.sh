@@ -27,7 +27,13 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 
 #cgo enable
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
+
+#remove defaut package
 sed -i '/luci-app-accesscontrol/d' include/target.mk
+sed -i '/luci-app-filetransfer/d' include/target.mk
+sed -i '/luci-app-vlmcsd/d' include/target.mk
+sed -i '/luci-app-wol/d' include/target.mk
+
 #netdata chienese 
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
 git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
