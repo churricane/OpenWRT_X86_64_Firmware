@@ -34,6 +34,16 @@ sed -i 's/luci-app-filetransfer//g' include/target.mk
 sed -i 's/luci-app-vlmcsd//g' include/target.mk
 sed -i 's/luci-app-wol//g' include/target.mk
 
+#取消Nginx强制转跳https，取消Nginx对登录地址限制
+#取消登录IP限制
+sed -i "2i sed -i '/restrict_locally/d' /etc/config/nginx" package/lean/default-settings/files/zzz-default-settings
+#取消强制转跳https
+sed -i "3i sed -i '/302/d' /etc/config/nginx" package/lean/default-settings/files/zzz-default-settings
+#设置80端口加载.locations
+sed -i "4i uci add_list nginx._redirect2ssl.include='conf.d/*.locations'" package/lean/default-settings/files/zzz-default-settings
+#设置Nginx配置生效
+sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-settings
+
 #netdata chienese 
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
 git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
