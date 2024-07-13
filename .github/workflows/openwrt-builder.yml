@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Origin OpenWrt Builder
+name: x86_64-OpenWrt Builder-Original
 
 on:
   repository_dispatch:
