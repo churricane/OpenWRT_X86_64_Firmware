@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
@@ -36,6 +36,11 @@ sed -i 's/luci-app-accesscontrol//g' include/target.mk
 sed -i 's/luci-app-filetransfer//g' include/target.mk
 sed -i 's/luci-app-vlmcsd//g' include/target.mk
 sed -i 's/luci-app-wol//g' include/target.mk
+sed -i 's/luci-app-ddns//g' include/target.mk
+sed -i 's/ddns-scripts_aliyun//g' include/target.mk
+sed -i 's/ddns-scripts_dnspod//g' include/target.mk
+sed -i 's/luci-app-upnp//g' include/target.mk
+sed -i 's/luci-app-vsftpd//g' include/target.mk
 
 #取消Nginx强制转跳https，取消Nginx对登录地址限制
 #取消登录IP限制
