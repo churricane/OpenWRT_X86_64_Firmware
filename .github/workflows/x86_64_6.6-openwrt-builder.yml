@@ -21,8 +21,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86_64-6.6.config
-  DIY_P1_SH: x86_64-part1.sh
-  DIY_P2_SH: x86_64-part2.sh
+  DIY_P1_SH: x86_64-6.6.36-part1.sh
+  DIY_P2_SH: x86_64-6.6.36-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
