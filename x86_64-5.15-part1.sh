@@ -17,4 +17,4 @@ git checkout d75705cfc46e90b766869242bf8e748356f8500c
 
 # Add a feed source
 echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
-echo 'src-git kenzok8 https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+#echo 'src-git kenzok8 https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
