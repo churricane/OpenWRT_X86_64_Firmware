@@ -12,8 +12,8 @@
 
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
-#check kernel 5.15.150
-git checkout d75705cfc46e90b766869242bf8e748356f8500c
+#check kernel 5.15.162
+git checkout 8cf859bf012c9619d56cf90e567a381edd1119d8
 
 # Add a feed source
 echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
