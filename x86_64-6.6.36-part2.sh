@@ -47,6 +47,6 @@ sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-set
 rm -rf ./feeds/luci/applications/luci-app-netdata/  
 git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
-#update go-lang 1.22
+#update go-lang 1.23
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
