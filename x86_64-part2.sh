@@ -29,7 +29,15 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 
 #remove defaut package
-sed -i 's/luci-app-ddns//g; s/luci-app-upnp//g; s/luci-app-vsftpd//g; s/luci-app-vlmcsd//g; s/luci-app-wol//g; s/luci-app-accesscontrol//g; s/luci-app-filetransfer//g' include/target.mk
+sed -i 's/luci-app-accesscontrol//g' include/target.mk
+sed -i 's/luci-app-filetransfer//g' include/target.mk
+sed -i 's/luci-app-vlmcsd//g' include/target.mk
+sed -i 's/luci-app-wol//g' include/target.mk
+sed -i 's/luci-app-ddns//g' include/target.mk
+sed -i 's/ddns-scripts_aliyun//g' include/target.mk
+sed -i 's/ddns-scripts_dnspod//g' include/target.mk
+sed -i 's/luci-app-upnp//g' include/target.mk
+sed -i 's/luci-app-vsftpd//g' include/target.mk
 
 #取消Nginx强制转跳https，取消Nginx对登录地址限制
 #取消登录IP限制
@@ -48,3 +56,6 @@ git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/l
 #update go-lang 1.23
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+
+#如果Lean的源码出错，lede根目录下，删除多余的
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
