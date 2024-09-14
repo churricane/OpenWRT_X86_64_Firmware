@@ -29,7 +29,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 
 #remove defaut package
-sed -i 's/luci-app-ddns//g; s/luci-app-upnp//g; s/luci-app-vsftpd//g; s/luci-app-vlmcsd//g; s/luci-app-wol//g; s/luci-app-accesscontrol//g; s/luci-app-filetransfer//g' include/target.mk
+sed -i 's/luci-app-ddns//g; s/luci-app-upnp//g; s/ddns-scripts_aliyun//g; s/ddns-scripts_dnspod//g; s/luci-app-vsftpd//g; s/luci-app-vlmcsd//g; s/luci-app-wol//g; s/luci-app-accesscontrol//g; s/luci-app-filetransfer//g' include/target.mk
 #kernel 6.6.36
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
@@ -50,3 +50,6 @@ git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/l
 #update go-lang 1.23
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+
+#如果Lean的源码出错，lede根目录下，删除多余的
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
