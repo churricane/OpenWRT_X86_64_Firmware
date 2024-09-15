@@ -29,7 +29,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 
 #remove defaut package
-#sed -i 's/luci-app-ddns//g; s/luci-app-upnp//g; s/ddns-scripts_aliyun//g; s/ddns-scripts_dnspod//g; s/luci-app-vsftpd//g; s/luci-app-vlmcsd//g; s/luci-app-wol//g; s/luci-app-accesscontrol//g; s/luci-app-filetransfer//g' include/target.mk
+sed -i 's/luci-app-ddns//g; s/luci-app-upnp//g; s/ddns-scripts_aliyun//g; s/ddns-scripts_dnspod//g; s/luci-app-vsftpd//g; s/luci-app-vlmcsd//g; s/luci-app-wol//g; s/luci-app-accesscontrol//g; s/luci-app-filetransfer//g' include/target.mk
 #kernel 6.6.36
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
