@@ -26,7 +26,7 @@ sed -i 's/\/bin\/ash/\/bin\/bash/' package/base-files/files/etc/passwd
 sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 
 #kernel 5.15
-sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/rockchip/Makefile
+sed -i 's/KERNEL_PATCHVER:=6.6/KERNEL_PATCHVER:=5.15/g' target/linux/rockchip/Makefile
 
 #cgo enable
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
