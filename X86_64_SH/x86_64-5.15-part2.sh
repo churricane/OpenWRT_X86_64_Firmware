@@ -29,7 +29,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
 
 #cgo enable
-sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
+#sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 
 #remove defaut package
 sed -i 's/luci-app-accesscontrol//g' include/target.mk
@@ -53,12 +53,12 @@ sed -i "4i uci add_list nginx._redirect2ssl.include='conf.d/*.locations'" packag
 sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-settings
 
 #netdata chienese 
-rm -rf ./feeds/luci/applications/luci-app-netdata/  
-git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
+#rm -rf ./feeds/luci/applications/luci-app-netdata/  
+#git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #update go-lang 1.23
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 #如果Lean的源码出错，lede根目录下，删除多余的
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
