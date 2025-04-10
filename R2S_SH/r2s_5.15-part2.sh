@@ -27,9 +27,9 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 
 #kernel 5.15
 sed -i 's/KERNEL_PATCHVER:=6.6/KERNEL_PATCHVER:=5.15/g' target/linux/rockchip/Makefile
-
+sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' target/linux/rockchip/Makefile
 #cgo enable
-sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
+#sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' feeds/packages/utils/v2dat/Makefile
 
 #remove defaut package
 sed -i 's/luci-app-accesscontrol//g' include/target.mk
@@ -61,10 +61,9 @@ sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-set
 #git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 #如果Lean的源码出错，lede根目录下，删除多余的
-#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 
 rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
-rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb
 rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
 rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
 wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
