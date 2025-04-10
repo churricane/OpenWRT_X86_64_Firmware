@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
@@ -53,8 +53,8 @@ sed -i "4i uci add_list nginx._redirect2ssl.include='conf.d/*.locations'" packag
 sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-settings
 
 #netdata chienese 
-rm -rf ./feeds/luci/applications/luci-app-netdata/  
-git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
+#rm -rf ./feeds/luci/applications/luci-app-netdata/  
+#git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #update go-lang 1.23
 #rm -rf feeds/packages/lang/golang
@@ -62,3 +62,10 @@ git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/l
 
 #如果Lean的源码出错，lede根目录下，删除多余的
 #rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+
+rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
+rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
+rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
+wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
+wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
+wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
