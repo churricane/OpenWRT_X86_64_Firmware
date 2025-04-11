@@ -16,9 +16,10 @@
 #git checkout d75705cfc46e90b766869242bf8e748356f8500c
 
 #check kernel 5.15.162
-git checkout 8cf859bf012c9619d56cf90e567a381edd1119d8
+#git checkout 8cf859bf012c9619d56cf90e567a381edd1119d8
 #check kernel 5.15.175
-#git checkout 3f938d01a6fd027e3e1d111ecc5061aba37e31c6
+git checkout 3f938d01a6fd027e3e1d111ecc5061aba37e31c6
+
 # Add a feed source
 echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
 #echo 'src-git kenzok8 https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
