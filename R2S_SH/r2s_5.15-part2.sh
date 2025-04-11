@@ -64,8 +64,8 @@ sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-set
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 
 rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
-rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
-rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
+#rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
+#rm -rf ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
 wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
-wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
-wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
+#wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-fastrhino.dtsi
+#wget https://github.com/coolsnowwolf/lede/blob/d3d38a20cba66c2f0de6f6a180245e0f0f36f615/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi -O ./target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-hinlink-opc.dtsi
