@@ -13,7 +13,9 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 #check kernel 6.1
-git checkout 7495ac1b63d29610efcd4ec5effc0900e2e590a7
+#git checkout 7495ac1b63d29610efcd4ec5effc0900e2e590a7
+#check kernel 6.12
+git checkout 58087a19e0c8933d32b58f830ffddc9d9a426c56
 # Add a feed source
 echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
 #echo 'src-git kenzok8 https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
