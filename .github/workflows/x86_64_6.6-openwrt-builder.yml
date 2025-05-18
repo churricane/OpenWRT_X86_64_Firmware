@@ -95,6 +95,8 @@ jobs:
         #sudo mkdir -p /workdir
         #sudo chown $USER:$GROUPS /workdir
         sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
+    - name: TG推送
+      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🔥OpenWRT_X86_64_Firmware_6.6自用版固件开刷编译，请耐心等待！"
 
     - name: Clone source code
       working-directory: ./
@@ -204,3 +206,5 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: TG推送
+      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🅰️恭喜主人OpenWRT_X86_64_Firmware_6.6自用版固件编译完成！🎉%0A⏰编译时间：${{ env.DATE }}"
