@@ -25,7 +25,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: X86_64_config/x86_64-6.6.config
   DIY_P1_SH: X86_64_SH/x86_64-6.6-part1.sh
-  DIY_P2_SH: X86_64_SH/x86_64-6.6-part1.sh
+  DIY_P2_SH: X86_64_SH/x86_64-6.6-part2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
