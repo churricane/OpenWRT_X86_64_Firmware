@@ -204,7 +204,7 @@ jobs:
     - name: 发布至release
       id: release
       uses: ncipollo/release-action@v1
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' &&  && !cancelled()
+      if: env.UPLOAD_RELEASE == 'true' &&  && !cancelled()
       with:
         name: ${{ env.FILE_TIME }} 「 openwrt-6.6-X86-64 」
         allowUpdates: true
