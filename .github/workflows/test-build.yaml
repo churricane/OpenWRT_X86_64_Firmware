@@ -141,7 +141,7 @@ jobs:
 
     - name: 保存编译日志
       if: always()  # 确保无论编译是否成功都会执行
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@main
       with:
         name: build-log
         path: build.log
