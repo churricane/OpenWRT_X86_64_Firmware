@@ -121,18 +121,41 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
     - name: 开始编译固件
       id: compile
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
+        make -j$(nproc) V=s |& tee build.log || make -j1 V=s |& tee -a build.log
+        compile_status=$?
+        if [ "$compile_status" -ne 0 ]; then
+          echo "status=failed" >> $GITHUB_OUTPUT
+          exit 1
+        fi
         echo "status=success" >> $GITHUB_OUTPUT
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "FILE_TIME=$(date "+%Y年%m月%d日-%H点")" >> $GITHUB_ENV
         echo "TAG_TIME=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+
+    - name: 保存编译日志
+      if: always()  # 确保无论编译是否成功都会执行
+      uses: actions/upload-artifact@main
+      with:
+        name: build-log
+        path: build.log
+
+    - name: TG推送编译失败日志
+      if: steps.compile.outputs.status != 'success'
+      run: |
+        grep -i "error" -C 10 build.log > error_messages.txt  # 保存错误日志
+        while IFS= read -r line; do
+          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+               -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🔥编译失败！错误详情：%0A$line"
+        done < error_messages.txt
+
     - name: 查看磁盘使用情况
       if: (!cancelled())
       run: df -hT
@@ -161,7 +184,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
     - name: 上传固件到github
       uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
+      if: steps.compile.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_x86_64_6.6${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
@@ -169,7 +192,7 @@ jobs:
 
     - name: 上传固件到WT网盘
       id: wetransfer
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL https://raw.githubusercontent.com/Mikubill/transfer/master/install.sh | sh
         ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
