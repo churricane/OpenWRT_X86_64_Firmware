@@ -13,7 +13,7 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 #check kernel 6.6.90
-git checkout b3f63c7948b4b59df5f837b9e3bc343c22f74798
+#git checkout b3f63c7948b4b59df5f837b9e3bc343c22f74798
 #check kernel 6.6.91
 #git checkout 6620a5e83caca39793b72e9a531a0d73e9ee3b67
 # Add a feed source
