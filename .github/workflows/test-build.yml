@@ -155,7 +155,7 @@ jobs:
         if [ "$status" != "success" ]; then
           exit 1
         fi
-    - name: 保存编译日志
+    - name: 上传错误日志文件
       if: failure()  # 如果编译失败 上传错误日志文件
       uses: actions/upload-artifact@main
       with:
@@ -166,16 +166,13 @@ jobs:
       if: failure()
       run: |
         cd openwrt
-        # 先提取包含 error 关键字及上下文的内容
-        grep -i "error" -C 10 build.log > error_messages.txt
-    
-        # 获取最后 4000 个字符，保证是整行
-        tail -c 4000 error_messages.txt | awk 'NR==1{sub(/^[^\n]*\n/, "")} 1' > error_tail.txt
-    
-        while IFS= read -r line; do
-          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-               -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🔥编译失败！日志结尾：%0A$line"
-        done < error_tail.txt
+        # 取 build.log 最后 4000 字符，保证首行为整行
+        tail -c 4000 build.log | awk 'NR==1{sub(/^[^\n]*\n/, "")} 1' > build_tail.txt
+        LOG_CONTENT=$(cat build_tail.txt)
+        # 只推送一条消息（注意 --data-urlencode，避免内容超长报错）
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+          --data-urlencode "text=🔥编译失败！日志结尾：%0A${LOG_CONTENT}"
 
     - name: 查看磁盘使用情况
       if: (!cancelled())
