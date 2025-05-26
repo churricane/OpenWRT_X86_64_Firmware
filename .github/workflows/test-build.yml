@@ -172,7 +172,7 @@ jobs:
         # 只推送一条消息（注意 --data-urlencode，避免内容超长报错）
         curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
           -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-          --data-urlencode "text=🔥编译失败！日志结尾：%0A${LOG_CONTENT}"
+          --data-urlencode "text=🔥编译失败！日志结尾：\n${LOG_CONTENT}"
 
     - name: 查看磁盘使用情况
       if: (!cancelled())
