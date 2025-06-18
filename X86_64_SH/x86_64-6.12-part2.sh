@@ -8,6 +8,10 @@
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
+#Add AppFilter
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+# Add Passwall
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
 # img add build date
 sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX := $(shell date +'%F')' ./include/image.mk
 sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
@@ -51,6 +55,7 @@ sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-set
 #update go-lang 1.23
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
-
+# delete mosdns
+rm -rf feeds/packages/net/mosdns
 #如果Lean的源码出错，lede根目录下，删除多余的
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
