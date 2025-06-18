@@ -56,6 +56,7 @@ sed -i '5i uci commit nginx' package/lean/default-settings/files/zzz-default-set
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 # delete mosdns
-rm -rf feeds/packages/net/mosdns
+rm -rf ./feeds/packages/net/mosdns
+cp -rf ./feeds/smpackage/mosdns ./feeds/packages/net/mosdns
 #如果Lean的源码出错，lede根目录下，删除多余的
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
