@@ -18,7 +18,7 @@
 #git checkout 6620a5e83caca39793b72e9a531a0d73e9ee3b67
 #check kernel 6.6.92
 #git checkout 6a5bb9d211ec45718d4956dd3deb976aa07e79fe
-
+git tag v24.10.1
 # Add a feed source
 echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
 #echo 'src-git kenzok8 https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
